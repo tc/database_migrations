@@ -1,0 +1,39 @@
+Database Migrations
+-
+@tommychheng
+
+This application lets you use active_record's database migrations without a full blown Rails stack.
+
+To get started:
+setup your database connection information in config/database.yml
+
+Create a database:
+rake db:create
+
+Create a new migration:
+rails g migration create_users
+
+This will create a file in db/migrate.
+
+Add a column:
+class CreateUser < ActiveRecord::Migration
+  def self.up
+    create_table :users do |t|
+      t.string :name
+    end
+  end
+
+  def self.down
+    drop_table :users
+  end
+end
+
+Perform the migration:
+rake db:migrate
+
+Now you have a working database which can be managed by this application.
+
+Rollback to a previous version:
+rake db:migrate VERISON=XXXX
+
+The versioning of the database is managed in the database's schema_migrations table.
