@@ -1,8 +1,10 @@
 Database Migrations
+https://github.com/tc/database_migrations
 -
 @tommychheng
+http://tommy.chheng.com
 
-This application lets you use active_record's database migrations without a full blown Rails stack.
+This application lets you use active_record's database migrations without a full blown Rails stack. Includes only the files necessary to run active_record migrations.
 
 To get started:
 setup your database connection information in config/database.yml
@@ -15,8 +17,8 @@ rails g migration create_users
 
 This will create a file in db/migrate.
 
-Add a column:
-class CreateUser < ActiveRecord::Migration
+Add columns:
+class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
       t.string :name
